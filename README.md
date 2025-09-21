@@ -4,25 +4,25 @@
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/complex-text-tools)
 ![PyPI - License](https://img.shields.io/pypi/l/complex-text-tools)
 
-A Python package for processing complex text containing mixed Chinese and English characters, removing extra spaces and counting text length according to specific rules.
+一个用于处理包含中英文混合字符的复杂文本的Python包，能够移除多余空格并根据特定规则计算文本长度。
 
-## Features
+## 功能特性
 
-- Remove extra spaces between Chinese characters
-- Remove extra spaces between Chinese and English characters
-- Handle spacing around punctuation marks correctly
-- Count text length according to specific rules (Chinese characters, English words, numbers, equations, etc.)
-- Process mixed language texts efficiently
+- 移除中文字符之间的多余空格
+- 移除中英文字符之间的多余空格
+- 正确处理标点符号周围的间距
+- 根据特定规则计算文本长度（中文字符、英文单词、数字、等式等）
+- 高效处理混合语言文本
 
-## Installation
+## 安装
 
 ```bash
 pip install complex-text-tools
 ```
 
-## Usage
+## 使用方法
 
-### Remove Extra Spaces
+### 移除多余空格
 
 ```python
 from complex_text_tools import remove_extra_spaces
@@ -30,10 +30,10 @@ from complex_text_tools import remove_extra_spaces
 text = "这 是  中文 测试  文本 ，  mixed  English  text  here ， 还 有   symbols :  ;  !  "
 clean_text = remove_extra_spaces(text)
 print(clean_text)
-# Output: "这是中文测试文本，mixed English text here，还有 symbols:;!"
+# 输出: "这是中文测试文本，mixed English text here，还有 symbols:;!"
 ```
 
-### Count Effective Text Length
+### 计算有效文本长度
 
 ```python
 from complex_text_tools import count_eff_len
@@ -41,9 +41,9 @@ from complex_text_tools import count_eff_len
 text = "这是一段包含 English words 和 123.45 数字的 mixed 文本"
 result = count_eff_len(text)
 print(result)
-# Output:15
+# 输出:15
 ```
 
-## License
+## 许可证
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+该项目基于 MIT 许可证 - 详情请见 [LICENSE](LICENSE) 文件。

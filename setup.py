@@ -9,7 +9,7 @@ def read_long_description():
 
 setup(
     name="complex-text-tools",
-    version="0.2.1",
+    version="0.2.2",
     author="mooremok",
     author_email="mooremok@163.com",
     description="A package for processing complex text with mixed Chinese and English characters",

@@ -48,7 +48,7 @@ def count_eff_len(text: str) -> int:
     - 所有标点各计 1 字
     """
     if not text or not text.strip():
-        return {"total": 0}
+        return 0
 
     # 预处理：统一空白字符
     text = re.sub(r"\s+", " ", text.strip())
@@ -76,12 +76,17 @@ def count_eff_len(text: str) -> int:
     for match in valid_numbers:
         remaining_text = remaining_text.replace(match, " ", 1)
 
-    # 4. 英文单词（含撇号，如 i'm, don't, it's, can't）
-    contractions = re.findall(
-        r"\b[a-zA-Z]+'?[a-zA-Z]*\b", remaining_text  # 支持 ' 开头或中间（如 '80s）
-    )
-    # 过滤掉纯标点
-    english_words = [w for w in contractions if re.search(r"[a-zA-Z]", w)]
+    # 3a. 特殊处理中文文本中的年份（4位数字+年）
+    years = re.findall(r"\d{4}(?=年)", remaining_text)
+    count += len(years)
+    for match in years:
+        remaining_text = remaining_text.replace(match + "年", "年", 1)
+
+    # 4. 英文单词（含撇号，如 i'm, don't, it's, can't，以及下划线连接的单词）
+    # 使用之前调试时工作正常的正则表达式
+    words = re.findall(r"[a-zA-Z_][a-zA-Z0-9_]*(?![\u4e00-\u9fff\uf900-\ufaff])", remaining_text)
+    # 过滤掉纯下划线和没有字母的词
+    english_words = [w for w in words if re.search(r"[a-zA-Z]", w)]
     count += len(english_words)
     for match in english_words:
         remaining_text = remaining_text.replace(match, " ", 1)
@@ -97,5 +102,3 @@ def count_eff_len(text: str) -> int:
     count += len(punctuation)
 
     return count
-
-

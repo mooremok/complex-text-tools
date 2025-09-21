@@ -1,30 +1,35 @@
-# Changelog
+# 更新日志
 
-All notable changes to this project will be documented in this file.
+该项目的所有重要变更都将记录在此文件中。
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+格式基于 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)，
+项目遵循 [语义化版本控制](https://semver.org/spec/v2.0.0.html) 规范。
+
+## [0.2.2] - 2025-09-22
+
+### 修复
+- 修复 `count_eff_len` 函数以正确处理中英文混合文本中的下划线标识符
+- 修复中文文本中的年份检测（例如，"2010年"现在能被正确计为1个字符）
 
 ## [0.2.1] - 2025-09-04
 
-### Fixed
-- Fixed `count_eff_len` Return Type, now returns a integer instead of a dictionary
+### 修复
+- 修复 `count_eff_len` 返回类型，现在返回整数而不是字典
 
-- 
 ## [0.2.0] - 2025-09-04
 
-### Added
-- Added `count_eff_len` function to count text length according to specific rules
-- Added package version tracking
-- Added comprehensive documentation in README
+### 新增
+- 添加 `count_eff_len` 函数，根据特定规则计算文本长度
+- 添加包版本跟踪
+- 添加完整的 README 文档
 
-### Changed
-- Improved package structure for better maintainability
-- Updated setup configuration for PyPI publishing
+### 变更
+- 改进包结构以提高可维护性
+- 更新设置配置以支持 PyPI 发布
 
 ## [0.1.0] - 2025-09-04
 
-### Added
-- Initial release
-- `remove_extra_spaces` function for processing mixed Chinese/English text
-- Basic package structure
+### 新增
+- 初始版本发布
+- `remove_extra_spaces` 函数用于处理中英文混合文本
+- 基础包结构
