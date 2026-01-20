@@ -6,7 +6,7 @@ This package provides utilities for:
 2. Counting effective text length according to specific rules
 """
 
-from .text_processor import remove_extra_spaces, count_eff_len
+from .text_processor import remove_extra_spaces, count_eff_len, fix_punctuation
 
-__all__ = ['remove_extra_spaces', 'count_eff_len']
-__version__ = '0.2.2'
+__all__ = ['remove_extra_spaces', 'count_eff_len', 'fix_punctuation']
+__version__ = '0.2.3'

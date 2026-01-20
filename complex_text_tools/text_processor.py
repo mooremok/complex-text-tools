@@ -102,3 +102,27 @@ def count_eff_len(text: str) -> int:
     count += len(punctuation)
 
     return count
+
+
+def fix_punctuation(text):
+    """修复文本的标点符号"""
+    def replace_punc(match):
+        punc = match.group()
+        return {
+            ',': '，',
+            '.': '。',
+            ';': '；',
+            ':': '：',
+            '?': '？',
+            '!': '！',
+            '(': '（',
+            ')': '）',
+        }.get(punc, punc)
+    
+    pattern = r'(?<=[\u4e00-\u9fff\u3000-\u303f\uff00-\uffef])[,.;:?!()](?=[\u4e00-\u9fff\u3000-\u303f\uff00-\uffef\s])'
+    text = re.sub(pattern, replace_punc, text)
+    
+    text = re.sub(r'，+', '，', text)
+    text = re.sub(r'。+', '。', text)
+    
+    return text
