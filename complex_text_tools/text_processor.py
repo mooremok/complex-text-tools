@@ -119,10 +119,15 @@ def fix_punctuation(text):
             ')': '）',
         }.get(punc, punc)
     
-    pattern = r'(?<=[\u4e00-\u9fff\u3000-\u303f\uff00-\uffef])[,.;:?!()](?=[\u4e00-\u9fff\u3000-\u303f\uff00-\uffef\s])'
+    pattern = r'(?<=[\u4e00-\u9fff\u3000-\u303f\uff00-\uffef])[,.;:?!()]|[,.;:?!()](?=[\u4e00-\u9fff\u3000-\u303f\uff00-\uffef])'
     text = re.sub(pattern, replace_punc, text)
     
     text = re.sub(r'，+', '，', text)
     text = re.sub(r'。+', '。', text)
     
     return text
+
+
+if __name__ == "__main__":
+    text = "成人CHF患者患病率已达1.3%,且患病后5年生存率仅约50%,严重威胁了患者生命健康[2]。"
+    print(fix_punctuation(text))
